@@ -45,7 +45,9 @@ class NeuralNetwork():
         print("dimensao do arquivo csv")
         print(self.df.shape) # tupla de dimensao
         
-        self.menu()
+        #self.menu()
+        self.grafico()
+        self.previsao_rede_neural()
         
 
 
@@ -58,11 +60,11 @@ class NeuralNetwork():
         x = np.linspace(11,15,20)
         plt.xlabel(u'Alcool')
         plt.ylabel(u'Magnesio')
-        self.df.plot(kind='scatter',x='Alcool',y='Magnesio')
+        self.df.plot(kind='scatter',x='Alcool',y='Magnesio',color=self.df['Produtor'],s=self.df['Fenois totais']*50)
 
 
         plt.legend()
-        plt.plot(x,y)
+        
         plt.show(True)
 
 
@@ -118,11 +120,12 @@ class NeuralNetwork():
            print("3 - Exibir previsao da Rede Neural")
            choice = input()
 
-        #    if choice == '1':
-        #        self.__init__()
-        #        break
-        #     else choice == '2':
-        #         self.grafico()
+           if choice == '1':
+                self.__init__(self) 
+           elif choice == '2':
+                self.grafico(self)
+           elif choice == '3':
+                self.previsao_rede_neural(self)
 
 
 
